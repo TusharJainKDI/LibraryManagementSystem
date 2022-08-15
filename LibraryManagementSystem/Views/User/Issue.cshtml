@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.LendRequest>
+<p>Your Issued Books</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LendId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LendDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LendStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LendId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LendDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LendStatus)
+            </td>
+            <td>
+                <form>
+                    <input type="submit" value="Return Book">
+                </form>
+            </td>
+        </tr>
+}
+</tbody>
+</table>

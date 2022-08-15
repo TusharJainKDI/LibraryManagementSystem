@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.LendRequest>
+
+@{
+    ViewData["Title"] = "Lend Books";
+}
+
+<h1 style="margin-left:420px">Lended Books</h1>
+<img src="~/imgs/books.png" width="100px" height="100px" style="margin-left: 500px"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LendStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LendDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FineAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LendStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LendDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FineAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.BookId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

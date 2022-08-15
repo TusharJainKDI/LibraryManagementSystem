@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.LendRequest>
+
+<h1 style="margin-left:400px">Admin's requested Book List'</h1>
+<img src="~/imgs/books.png" width="100px" height="100px" style="margin-left: 500px" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LendId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LendStatus)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.LendStatus.Equals("Requested"))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LendId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.BookTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LendStatus)
+                    </td>
+                    <td>
+                        <form asp-controller="Admin" asp-action="RequestApproved" asp-route-lendId=@item.LendId>
+                            <input type="submit" value="Approve" />
+                        </form>
+                        <form asp-controller="Admin" asp-action="RequestDeclined" asp-route-lendId=@item.LendId>
+                            <input type="submit" value="Decline" />
+                        </form>
+                    </td>
+                </tr>
+            }
+            
+        }
+    </tbody>
+</table>
