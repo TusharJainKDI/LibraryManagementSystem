@@ -4,7 +4,7 @@ This library management system is designed using **ASP.NET MVC** to manage all t
 ### Features
 > For Admin
  * Can *Approve* or *Reject* the request for any book.
- * Can perform *CRUD* operations on Account, Book, Author, Publisher, User tables.
+ * Can update the details of Account, Book, Author, Publisher, User tables.
  * Can View all the past *Records* of each user.
 > For User
 * Can views all the books and *Request* any book.
